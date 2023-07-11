@@ -8,22 +8,22 @@ const Categories = () => {
         {
           id: "c1",
           name: "Physician",
-          icon: require('../../assets/images/doctor.png')
+          icon: require('../../assets/images/gp.png')
         },
         {
           id: "c2",
           name: "Gynecologist",
-          icon: require('../../assets/images/doctor.png')
+          icon: require('../../assets/images/gynecologist.png')
         },
         {
           id: "c3",
           name: "Cardio",
-          icon: require('../../assets/images/doctor.png'),
+          icon: require('../../assets/images/cardio.png'),
         },
         {
           id: "c4",
           name: "Dentist",
-          icon: require('../../assets/images/doctor.png'),
+          icon: require('../../assets/images/dental.png'),
         },
     ];
 
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     itemContainer: {
        flexDirection: "row",
        alignItems: 'center',
-       backgroundColor: colors.offWhite, 
+      // backgroundColor: colors.offWhite, 
     },
     title: {
       fontSize: 18,

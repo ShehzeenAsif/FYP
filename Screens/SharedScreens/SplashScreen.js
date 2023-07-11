@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { View, StyleSheet, Animated, Text, Easing } from 'react-native';
 import Button from "../../components/UI/Button";
+import { colors } from '../../constants/colors';
 
 const AbstractElement = ({ animatedValue }) => {
   const animatedScale = animatedValue.interpolate({

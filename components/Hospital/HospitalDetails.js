@@ -1,26 +1,26 @@
 import { Image, ImageBackground, StyleSheet, Text, View, FlatList, TouchableOpacity } from "react-native";
 import Title from "../../components/UI/Title";
 import { colors } from "../../constants/colors";
-import { Ionicons } from "@expo/vector-icons";
 
-const ChooseMode = () => {
+
+const HospitalDetails = () => {
     const mode = [
         {
-          id: "m1",
-          name: "Consult Online",
-          icon: require('../../assets/images/video-call.png')
+          id: "h1",
+          name: "Aga Khan Hospital",
+          icon: require('../../assets/images/image1.jpg')
         },
         {
-          id: "m2",
-          name: "Book Appointment",
-          icon: require('../../assets/images/medical-team.png')
+          id: "h2",
+          name: "Liaquat National Hospital",
+          icon: require('../../assets/images/image2.jpg')
         },
         
     ];
 
     return (
         <View style={styles.container}>
-          <Text style={styles.title}>I want to</Text>
+          <Text style={styles.title}>Registered Hospitals</Text>
            <View style={styles.itemContainer}>
               <FlatList horizontal data={mode} 
                   renderItem={(itemData) => {
@@ -39,7 +39,7 @@ const ChooseMode = () => {
     );
 }
 
-export default ChooseMode;
+export default HospitalDetails;
 
 const styles = StyleSheet.create({
     container: {
@@ -48,8 +48,9 @@ const styles = StyleSheet.create({
       backgroundColor: "white",
     },
     modeImage: {
-        width: 100,
-        height: 100,
+        width: 170,
+        height: 120,
+        borderRadius: 10,
       },
     item: {
        margin: 10,
@@ -57,15 +58,15 @@ const styles = StyleSheet.create({
        flexWrap: 'wrap'
     },
     list: {
-      margin: 10,
+      margin: 2,
       justifycontent: 'center',
       alignItems: 'center',
     //  flexWrap: 'wrap',
-      elevation: 3,
-      width: 160,
+     // elevation: 3,
+      width: 180,
        borderColor : "black",
-       borderRadius: 5,
-       shadowRadius: 2,
+       borderRadius: 10,
+      // shadowRadius: 2,
    },
     itemContainer: {
        flexDirection: "row",

@@ -7,35 +7,59 @@ import { colors } from "../../constants/colors";
 
 const LoginScreen = ({ navigation, route }) => {
   
-  //const register = route.params.register;
+ // const register = route.params.register;
+  const signupHandler = () => {
+    navigation.navigate("SignupScreen", {
+      //register: route.params.register,
+    });
+  };
+  
 
-  const loginHandler = () => {
+  const loginAsPatientHandler = () => {
     navigation.navigate("DashboardScreen", {
-      
+     // register: route.params.register,
+    });
+  };
+
+  const loginAsDocHandler = () => {
+    navigation.navigate("DoctorDashboard", {
     });
   };
  
 
   return (
     <View style={styles.container}>
+
+      <Card style={styles.cardContainer}>
       <ImageBackground
-       // source={require("../../assets/images/signupbg.webp")}
-        style={styles.backgroundImage}
-      />
-      <Card style={styles.inputContainer}>
-        <Text style={styles.title}>LOGIN</Text>
-        <Input placeholder="Email" />
-        <Input placeholder="Password" />
-        <Button style={styles.button} onPress={loginHandler}>
-          LOGIN
+        source={require("../../assets/images/signupbg.png")}
+        style={styles.backgroundImage} />
+        <View style={styles.textContainer}>
+            <Input style={styles.inputContainer} placeholder="Email" />
+            <Input style={styles.inputContainer} placeholder="Password" />
+        </View>
+        
+        <View style={styles.buttonContainer}>
+            <View style={styles.buttonContainer1}>
+              <Button style={styles.button} onPress={loginAsPatientHandler}>
+               Login As Patient
+              </Button>
+           </View>
+           <View style={styles.buttonContainer1}>
+              <Button style={styles.button} onPress={loginAsDocHandler}>
+              Login As Doctor
         </Button>
+        </View>
+
+        </View>
+       
         <Text style={styles.registerText}>
           New User?
-          <Text style={styles.registerSubtext}>
+          <Text style={styles.registerSubtext} onPress={signupHandler}>
             Register Now
           </Text>
         </Text>
-       
+
       </Card>
     </View>
   );
@@ -48,14 +72,22 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   backgroundImage: {
-    width: "100%",
-    height: 280,
-  },
-  inputContainer: {
-    marginTop: 40,
+    marginTop:40  ,
+    width: 250,
     height: 200,
+  },
+  cardContainer: {
+    marginTop: 80,
+   // height: 200,
     borderTopStartRadius: 50,
     borderTopEndRadius: 50,
+    backgroundColor:"#D9D9D9"
+  },
+  textContainer: {
+    padding: 20,
+   // width: '100%',
+    alignContent: 'center',
+    justifyContent: "center"
   },
   title: {
     fontSize: 24,
@@ -63,8 +95,14 @@ const styles = StyleSheet.create({
     color: colors.blue
   },
   button: {
-    paddingHorizontal: 100,
-    padding: 20,
+    paddingHorizontal: 40,
+  },
+  buttonContainer: {
+    padding: 10,
+  },
+  buttonContainer1: {
+    padding: 6,
+    
   },
   forgetPasswordText: {
     color: "orange",
@@ -82,4 +120,12 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline",
     fontWeight: "bold",
   },
+  inputContainer: {
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#ccc',
+   // width: '90%',
+    padding: 8,
+},
 });
