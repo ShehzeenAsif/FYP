@@ -1,5 +1,7 @@
+
 import { Image, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import React, { useState } from "react";
+
 import * as ImagePicker from "expo-image-picker";
 import { colors } from "../../../constants/colors";
 import Button from "../../../components/UI/Button";
