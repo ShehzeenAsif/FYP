@@ -1,12 +1,16 @@
-import { ImageBackground, StyleSheet, Text, View } from "react-native";
+import { ImageBackground, StyleSheet, Text, View , ScrollView} from "react-native";
 import AccountLogin from "../../components/Login/AccountLogin";
 import Button from "../../components/UI/Button";
 import Card from "../../components/UI/Card";
 import Input from "../../components/UI/Input";
 import { colors } from "../../constants/colors";
+// import { useWalletConnectModal } from "@walletconnect/modal-react-native";
 
 const LoginScreen = ({ navigation, route }) => {
   
+
+// const connector = useWalletConnectModal()
+// connector.open()
  // const register = route.params.register;
   const signupHandler = () => {
     navigation.navigate("SignupScreen", {
@@ -28,7 +32,8 @@ const LoginScreen = ({ navigation, route }) => {
  
 
   return (
-    <View style={styles.container}>
+
+    <ScrollView style={styles.container}>
 
       <Card style={styles.cardContainer}>
       <ImageBackground
@@ -44,6 +49,9 @@ const LoginScreen = ({ navigation, route }) => {
               <Button style={styles.button} onPress={loginAsPatientHandler}>
                Login As Patient
               </Button>
+              {/* <Button style={styles.button} onPress={()=>connector.open()}>
+               CONNECT WALLET
+              </Button> */}
            </View>
            <View style={styles.buttonContainer1}>
               <Button style={styles.button} onPress={loginAsDocHandler}>
@@ -61,7 +69,7 @@ const LoginScreen = ({ navigation, route }) => {
         </Text>
 
       </Card>
-    </View>
+    </ScrollView>
   );
 };
 

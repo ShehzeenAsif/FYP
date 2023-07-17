@@ -8,7 +8,7 @@ const PaymentDetails  = ({navigation}) => {
 
   const payNowHandler = () => {
     <ShowAppointment/>
-    navigation.navigate("MetaMask");
+    // navigation.navigate("MetaMask");
     alert('Appointment booked successfully')
     
 };

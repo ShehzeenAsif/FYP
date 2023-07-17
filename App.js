@@ -23,8 +23,23 @@ import PaymentDetails from './Screens/PatientScreens/Booking/PaymentDetails';
 import DoctorHomeScreen from './Screens/DoctorScreens/DoctorHomeScreen';
 import DoctorProfile from './Screens/DoctorScreens/DoctorProfile';
 import ScheduledAppointments from './Screens/DoctorScreens/ScheduledAppointments';
-import MetaMask from './Screens/PatientScreens/Booking/MetaMask';
+//import MetaMask from './Screens/PatientScreens/Booking/MetaMask';
 
+// import { withWalletConnect } from '@walletconnect/modal-react-native';
+import { WalletConnectModal } from '@walletconnect/modal-react-native';
+
+const projectId = 'd1dfba6524a8279627fb29143b628ec4';
+
+const providerMetadata = {
+  name: 'healaid',
+  description: 'Healaid',
+  url: 'https://cryptter.netlify.app',
+  cons: ['https://cryptter.netlify.app'],
+  redirect: {
+    native: 'healaid://',
+    universal: 'https://cryptter.netlify.app'
+  }
+};
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -159,12 +174,14 @@ const DoctorDashboard = ({ route }) => {
   );
 };
 
-export default function App() {
+const App = ()=> {
   return (
-    
+  
     <View style={styles.container}>  
+      {/* <WalletConnectModal projectId={projectId} providerMetadata={providerMetadata} /> */}
       <StatusBar style="light" />
         <NavigationContainer>
+      
           <Stack.Navigator
             screenOptions={{
              // headerTitle: () => <LogoTitle />,
@@ -200,7 +217,7 @@ export default function App() {
             <Stack.Screen name="TimeSlot" component={TimeSlot} initialParams={navigator} />
             <Stack.Screen name="PatientDetails" component={PatientDetails}  />
             <Stack.Screen name="PaymentDetails" component={PaymentDetails} />
-            <Stack.Screen name="MetaMask" component={MetaMask} />
+           {/* <Stack.Screen name="MetaMask" component={MetaMask} /> */}
            
           </Stack.Navigator>
         </NavigationContainer>
@@ -224,3 +241,19 @@ const styles = StyleSheet.create({
   },
  
 });
+
+
+// export default withWalletConnect(React.memo(App), {
+//   clientMeta: {
+//     description: 'Connect with HealAid',
+//     url: 'https://puchooo.netlify.app/',
+//     icons: ['https://puchooo.netlify.app/'],
+//     name: 'PuchoOO',
+//   },
+//   redirectUrl: Platform.OS === 'web' ? window.location.origin : 'puchooo://',
+//   storageOptions: {
+//     asyncStorage: AsyncStorage,
+//   },
+// });
+
+export default App;
