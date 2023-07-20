@@ -4,7 +4,7 @@ import { colors } from "../../constants/colors";
 
 
 const HospitalDetails = () => {
-    const mode = [
+    const hospital = [
         {
           id: "h1",
           name: "Aga Khan Hospital",
@@ -22,7 +22,7 @@ const HospitalDetails = () => {
         <View style={styles.container}>
           <Text style={styles.title}>Registered Hospitals</Text>
            <View style={styles.itemContainer}>
-              <FlatList horizontal data={mode} 
+              {/* <FlatList horizontal data={mode} 
                   renderItem={(itemData) => {
                   return (
                     <View style={styles.list}>
@@ -32,7 +32,18 @@ const HospitalDetails = () => {
                      </View>
                     </View>
                   );
-                }}/>      
+                }}/>       */}
+
+              {hospital.map((item) => {
+                  return (
+                    <View style={styles.list}>
+                    <View style={styles.item}>
+                     <Image source={item.icon} style={styles.modeImage} />
+                     <Text style={styles.modeName}>{item.name}</Text>
+                   </View>
+                  </View>
+          );
+        })}
             </View>
 
         </View>

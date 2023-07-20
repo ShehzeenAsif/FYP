@@ -22,7 +22,7 @@ const ChooseMode = () => {
         <View style={styles.container}>
           <Text style={styles.title}>I want to</Text>
            <View style={styles.itemContainer}>
-              <FlatList horizontal data={mode} 
+              {/* <FlatList horizontal data={mode} 
                   renderItem={(itemData) => {
                   return (
                     <View style={styles.list}>
@@ -32,7 +32,17 @@ const ChooseMode = () => {
                      </View>
                     </View>
                   );
-                }}/>      
+                }}/>       */}
+                {mode.map((item) => {
+                 return (
+                  <View style={styles.list}>
+                      <View style={styles.item}>
+                       <Image source={item.icon} style={styles.modeImage} />
+                       <Text style={styles.modeName}>{item.name}</Text>
+                      </View>
+                  </View>
+          );
+        })}
             </View>
 
         </View>

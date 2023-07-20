@@ -13,7 +13,6 @@ const UserHomeScreen = ({ navigation, route }) => {
           <Categories/> 
           <ChooseMode/>
           <HospitalDetails/>
-         
        </View>
     );
 }

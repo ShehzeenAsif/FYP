@@ -53,12 +53,26 @@ const SearchDoctor = ({navigation}) => {
         onChangeText={(text) => setSearchTerm(text)}
       />
       <Button onPress={handleSearch} style={styles.button}>Search</Button>
-      <FlatList
+      {/* <FlatList
         data={searchResults}
         renderItem={renderDoctorCard}
         keyExtractor={(item) => item.id}
         contentContainerStyle={styles.results}
-      />
+      /> */}
+      {searchResults.map((item) => {
+          return (
+            <View style={styles.cardContainer}>
+              <View style={styles.card}> 
+                 <Text style={styles.doctorName}>{item.name}</Text>
+                <Text style={styles.doctorSpecialty}>{item.specialty}</Text>
+              </View>
+              <View style={styles.buttonContainer}> 
+                <Button onPress={handleBook} style={styles.button}>Book Now</Button>
+              </View>
+      
+            </View>
+          );
+        })}
     </View>
   );
 }
